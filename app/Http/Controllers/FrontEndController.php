@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -14,6 +15,7 @@ class FrontEndController extends Controller
         return view('front.index', compact('categories', 'products'));
     }
     public function detail(Product $product){
+        
         $categories = category::all();
         $randomProduct = Product::whereKeyNot($product->id)->inRandomOrder()->limit(5)->get();
         return view('front.details', compact('product', 'randomProduct','categories'));

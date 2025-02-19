@@ -10,7 +10,7 @@
                     </a>
                     <ul class="flex gap-6 items-center">
                         <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
-                            <a href="index.html">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300 relative">
                             <button id="menu-button" class="flex items-center gap-1 focus:text-belibang-light-grey">

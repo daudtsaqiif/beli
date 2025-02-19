@@ -2,86 +2,7 @@
 @section('content')
 
     <body class="bg-belibang-black font-poppins text-white">
-        <nav class="w-full fixed top-0 bg-[#00000010] backdrop-blur-lg z-10">
-            <div class="container max-w-[1130px] mx-auto flex items-center justify-between h-[74px]">
-                <div class="flex items-center gap-[26px]">
-                    <a href="index.html" class="flex w-[154px] shrink-0 items-center">
-                        <img src="assets/images/logos/logo.svg" alt="logo">
-                    </a>
-                    <ul class="flex gap-6 items-center">
-                        <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300 relative">
-                            <button id="menu-button" class="flex items-center gap-1 focus:text-belibang-light-grey">
-                                <span>Categories</span>
-                                <img src="assets/images/icons/arrow-down.svg" alt="icon">
-                            </button>
-                            <div
-                                class="dropdown-menu hidden absolute top-[52px] grid grid-cols-2 p-4 gap-[10px] w-[526px] rounded-[20px] bg-[#1E1E1E] border border-[#414141] z-10">
-                                <div
-                                    class="col-span-2 flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
-                                    <div class="flex items-center">
-                                        <a href="" class="w-[58px] h-[58px] flex shrink-0 items-center">
-                                            <img src="assets/images/icons/cart.svg" alt="icon">
-                                        </a>
-                                        <a href="" class="flex flex-col">
-                                            <p class="font-bold text-sm text-white">All Products</p>
-                                            <p class="text-xs text-belibang-grey">Everything in One Place</p>
-                                        </a>
-                                    </div>
-                                    <div class="w-6 h-6 flex shrink-0">
-                                        <img src="assets/images/icons/crown.svg" alt="icon">
-                                    </div>
-                                </div>
-                                @forelse ($categories as $category)
-                                    <div
-                                        class="flex justify-between items-center rounded-2xl p-[12px_16px] border border-[#414141] hover:bg-[#2A2A2A] transition-all duration-300">
-                                        <div class="flex items-center">
-                                            <a href="" class="w-[58px] h-[58px] flex shrink-0 items-center">
-                                                <img src="{{ Storage::url($category->icon) }}" alt="icon">
-                                            </a>
-                                            <a href="" class="flex flex-col">
-                                                <p class="font-bold text-sm text-white">{{ $category->name }}</p>
-                                                <p class="text-xs text-belibang-grey">See more..</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                @empty
-                                @endforelse
-
-
-                            </div>
-                        </li>
-                        <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
-                            <a href="">Stories</a>
-                        </li>
-                        <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
-                            <a href="">Benefits</a>
-                        </li>
-                        <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
-                            <a href="">About</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex gap-6 items-center">
-                    @auth
-                        <a href="{{ route('dashboard') }}"
-                            class="p-[8px_16px] w-fit h-fit rounded-[12px] text-belibang-grey border border-belibang-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">
-                            Dashboard
-                        </a>
-                    @else
-                        <a href="{{ route('login') }}"
-                            class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">Log in</a>
-                        <a href="{{ route('register') }}"
-                            class="p-[8px_16px] w-fit h-fit rounded-[12px] text-belibang-grey border border-belibang-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">
-                            Sign up
-                        </a>
-                    @endauth
-
-                </div>
-            </div>
-        </nav>
+        <x-nav></x-nav>
 
         <header class="w-full pt-[74px] pb-[103px] relative z-0">
             <div class="container max-w-[1130px] mx-auto flex flex-col items-center justify-center z-10">
@@ -102,7 +23,7 @@
         <section id="DetailsContent" class="container max-w-[1130px] mx-auto mb-[32px] relative -top-[70px]">
             <div class="flex flex-col gap-8">
                 <div class="w-[1130px] h-[700px] flex shrink-0 rounded-[20px] overflow-hidden">
-                    <img src="assets/images/backgrounds/hero.png" class="w-full h-full object-cover" alt="hero image">
+                    <img src="{{ Storage::url($product->thumbnail) }}" class="w-full h-full object-cover" alt="hero image">
                 </div>
                 <div class="flex gap-8 relative -mt-[93px]">
                     <div
@@ -207,12 +128,12 @@
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center">
                                     <div class="w-12 h-12 rounded-full overflow-hidden flex shrink-0">
-                                        <img src="assets/images/icons/ydntkwia.svg" alt="icon">
+                                        <img src="{{ Storage::url($product->creator->avatar) }}" alt="icon">
                                     </div>
                                     <div class="flex flex-col gap-[2px]">
-                                        <p class="font-semibold">YDNTKWIA</p>
+                                        <p class="font-semibold">{{ $product->creator->name }}</p>
                                         <p class="text-[#595959] text-sm leading-[18px]">
-                                            <span class="font-semibold mr-1">83</span>
+                                            <span class="font-semibold mr-1">{{ $product->creator->products->count() }}</span>
                                             Product
                                         </p>
                                     </div>
@@ -221,8 +142,7 @@
                                     <img src="assets/images/icons/arrow-right.svg" alt="icon">
                                 </a>
                             </div>
-                            <p class="text-sm leading-[24px] text-belibang-grey">A young UI/UX Designer from Indonesia.
-                                Specialized in mobile apps designs & loves creating UI Kit 🇮🇩</p>
+                            <p class="text-sm leading-[24px] text-belibang-grey">{{ $product->creator->description }}</p>
                         </div>
                     </div>
                 </div>

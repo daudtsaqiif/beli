@@ -27,15 +27,17 @@
                         <h3 class="text-indigo-950 text-xl font-bold">Rp {{ number_format($product->price ,0,',', '.') }}</h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">
-                        <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        <a href="{{ route('product.edit', $product) }}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             edit
                         </a>
                     </div>
-                    <div class="hidden md:flex flex-row items-center gap-x-3">
-                        <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
-                            delete
-                        </a>
-                    </div>
+                    <form action="{{ route('product.destroy', $product) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="font-bold py-4 px-6 bg-red-700 text-white rounded-full">
+                            Delete
+                        </button>
+                    </form>
                 </div>
                 @empty
                 <p class="text-center font-semibold fs-1">Belum ada data product terbaru</p>
