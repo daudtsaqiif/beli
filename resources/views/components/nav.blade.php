@@ -2,7 +2,7 @@
             <div class="container max-w-[1130px] mx-auto flex items-center justify-between h-[74px]">
                 <div class="flex items-center gap-[26px]">
                     <a href="index.html" class="flex w-[154px] shrink-0 items-center">
-                        <img src="assets/images/logos/logo.svg" alt="logo">
+                        <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="{{ asset('assets/images/logos/logo.svg') }}">
                     </a>
                     <ul class="flex gap-6 items-center">
                         <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">

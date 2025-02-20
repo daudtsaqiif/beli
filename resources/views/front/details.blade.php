@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="background-image w-full h-full absolute top-0 overflow-hidden z-0">
-                <img src="assets/images/backgrounds/hero.png" class="w-full h-full object-cover" alt="hero image">
+                <img src="{{ Storage::url($product->thumbnail) }}" class="w-full h-full object-cover" alt="hero image">
             </div>
             <div class="w-full h-1/3 absolute bottom-0 bg-gradient-to-b from-belibang-black/0 to-belibang-black z-0"></div>
             <div class="w-full h-full absolute top-0 bg-belibang-black/95 z-0"></div>
@@ -32,34 +32,6 @@
                             <p class="font-semibold text-xl">About</p>
                             <p class="text-belibang-grey leading-[30px]">{{ $product->about }}</p>
                             <div class="flex items-center gap-[10px] mt-1">
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/Python.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/figma-logo.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/blender.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/Excel.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/Laravel.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/Kotlin.svg" class='p-[5px]' alt="logo">
-                                </a>
-                                <a href=""
-                                    class="w-9 h-9 justify-center items-center rounded-full flex shrink-0 overflow-hidden border-[0.69px] border-[#414141]">
-                                    <img src="assets/images/logos/flutter.svg" class='p-[5px]' alt="logo">
-                                </a>
                             </div>
                         </div>
                         <div class="flex flex-row flex-wrap gap-4 items-center">
@@ -96,30 +68,30 @@
                                 <div class="flex flex-col gap-3">
                                     <p
                                         class="font-semibold text-4xl bg-clip-text text-transparent bg-gradient-to-r from-[#B05CB0] to-[#FCB16B]">
-                                        Rp {{ $product->price }}</p>
+                                        Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                                     <div class="flex flex-col gap-[10px]">
                                         <div class="flex items-center gap-[10px]">
                                             <div class="w-4 h-4 flex shrink-0">
-                                                <img src="assets/images/icons/check.svg" alt="icon">
+                                                <img src="{{ asset('assets/images/icons/check.svg') }}" alt="icon">
                                             </div>
                                             <p class="text-belibang-grey">100% Original Content</p>
                                         </div>
                                         <div class="flex items-center gap-[10px]">
                                             <div class="w-4 h-4 flex shrink-0">
-                                                <img src="assets/images/icons/check.svg" alt="icon">
+                                                <img src="{{ asset('assets/images/icons/check.svg') }}" alt="icon">
                                             </div>
                                             <p class="text-belibang-grey">Lifetime Support</p>
                                         </div>
 
                                         <div class="flex items-center gap-[10px]">
                                             <div class="w-4 h-4 flex shrink-0">
-                                                <img src="assets/images/icons/check.svg" alt="icon">
+                                                <img src="{{ asset('assets/images/icons/check.svg') }}" alt="icon">
                                             </div>
                                             <p class="text-belibang-grey">Comprehensive Documentation</p>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="checkout.html"
+                                <a href="{{ route('front.checkout',$product) }}"
                                     class="bg-[#2D68F8] text-center font-semibold p-[12px_20px] rounded-full hover:bg-[#083297] active:bg-[#062162] transition-all duration-300">Check
                                     out</a>
                             </div>
@@ -168,7 +140,7 @@
                         </div>
                         <div class="flex items-center gap-[6px]">
                             <div class="w-6 h-6 flex shrink-0 items-center justify-center rounded-full overflow-hidden">
-                                <img src="assets/images/logos/framer.png" class="w-full h-full object-cover"
+                                <img src="{{ asset('assets/images/logos/framer.png') }}" class="w-full h-full object-cover"
                                     alt="logo">
                             </div>
                             <a href="" class="font-semibold text-xs text-belibang-grey">Framer</a>
@@ -387,11 +359,11 @@
                             class="p-6 flex flex-col w-full gap-[42px] shrink-0 bg-[url('assets/images/backgrounds/Testimonials-image.png')] bg-contain bg-no-repeat bg-top">
                             <div class="flex flex-col gap-4">
                                 <div class="flex items-center ga-[6px]">
-                                    <img src="assets/images/icons/star.svg" alt="star">
-                                    <img src="assets/images/icons/star.svg" alt="star">
-                                    <img src="assets/images/icons/star.svg" alt="star">
-                                    <img src="assets/images/icons/star.svg" alt="star">
-                                    <img src="assets/images/icons/star.svg" alt="star">
+                                    <img src="{{ asset('assets/images/icons/star.svg') }}" alt="star">
+                                    <img src="{{ asset('assets/images/icons/star.svg') }}" alt="star">
+                                    <img src="{{ asset('assets/images/icons/star.svg') }}" alt="star">
+                                    <img src="{{ asset('assets/images/icons/star.svg') }}" alt="star">
+                                    <img src="{{ asset('assets/images/icons/star.svg') }}" alt="star">
                                 </div>
                                 <p class="leading-[26px]">Using these templates has boosted my productivity significantly.
                                     Highly recommended for all designers!</p>
@@ -531,4 +503,4 @@
             });
         </script>
     </body>
-@endsection
+

@@ -14,18 +14,15 @@ class Product extends Model
         'name', 'slug', 'thumbnail', 'price', 'about', 'product_file', 'category_id', 'creator_id'
     ];
 
-    public function category()
-    {
+    public function category(){
         return $this->belongsTo(Category::class);
     }
 
-    public function creator()
-    {
+    public function creator(){
         return $this->belongsTo(User::class, 'creator_id');
     }
 
-public function orders()
-    {
+    public function orders(){
         return $this->hasMany(product_order::class);
     }
 

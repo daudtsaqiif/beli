@@ -5,7 +5,7 @@
         <nav class="w-full fixed top-0 bg-[#00000010] backdrop-blur-lg z-10">
             <div class="container max-w-[1130px] mx-auto flex items-center justify-between h-[74px]">
                 <div class="flex items-center gap-[26px]">
-                    <a href="index.html" class="flex w-[154px] shrink-0 items-center">
+                    <a href="/" class="flex w-[154px] shrink-0 items-center">
                         <img src="assets/images/logos/logo.svg" alt="logo">
                     </a>
                     <ul class="flex gap-6 items-center">
@@ -84,7 +84,7 @@
         </nav>
 
         <header
-            class="w-full pt-[74px] pb-[34px] bg-[url('assets/images/backgrounds/hero-image.png')] bg-cover bg-no-repeat bg-center relative z-0">
+            class="w-full pt-[74px] pb-[34px] bg-[url('{{ asset('assets/images/backgrounds/hero-image.png') }}')] bg-cover bg-no-repeat bg-center relative z-0" style="background-image: url('/assets/images/backgrounds/hero-image.png');">
             <div class="container max-w-[1130px] mx-auto flex flex-col items-center justify-center gap-[34px] z-10">
                 <div class="flex flex-col gap-2 text-center w-fit mt-20 z-10">
                     <h1 class="font-semibold text-[60px] leading-[130%]">Explore High Quality<br>Digital Products</h1>
